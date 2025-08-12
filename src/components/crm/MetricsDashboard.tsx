@@ -19,25 +19,29 @@ export const MetricsDashboard = ({ customers }: MetricsDashboardProps) => {
       title: "Total Customers",
       value: totalCustomers,
       icon: Users,
-      color: "text-blue-600",
+      iconBg: "bg-primary/10",
+      iconColor: "text-primary",
     },
     {
       title: "New Prospects",
       value: newCustomers,
       icon: Clock,
-      color: "text-yellow-600",
+      iconBg: "bg-ring/10",
+      iconColor: "text-ring",
     },
     {
       title: "In Talks",
       value: inTalks,
       icon: TrendingUp,
-      color: "text-orange-600",
+      iconBg: "bg-secondary",
+      iconColor: "text-secondary-foreground",
     },
     {
       title: "Closed Deals",
       value: closedDeals,
       icon: UserCheck,
-      color: "text-green-600",
+      iconBg: "bg-muted",
+      iconColor: "text-foreground",
     },
   ];
 
@@ -49,7 +53,9 @@ export const MetricsDashboard = ({ customers }: MetricsDashboardProps) => {
             <CardTitle className="text-sm font-medium text-muted-foreground">
               {metric.title}
             </CardTitle>
-            <metric.icon className={`h-4 w-4 ${metric.color}`} />
+            <div className={`h-8 w-8 rounded-md flex items-center justify-center ${metric.iconBg}`}>
+              <metric.icon className={`h-4 w-4 ${metric.iconColor}`} />
+            </div>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{metric.value}</div>
