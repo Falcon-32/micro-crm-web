@@ -1,73 +1,37 @@
-# Welcome to your Lovable project
+# 🛠️ Bug Fixes Documentation – Micro CRM (v1.0.0)
 
-## Project info
+## Overview
+This document outlines the major bugs that were discovered and resolved in the Micro CRM
 
-**URL**: https://lovable.dev/projects/5c63bf06-9601-452b-b520-0a727aeb1704
+## Critical Fixes Implemented
 
-## How can I edit this code?
+#### Problem
 
-There are several ways of editing your application.
+#### 01. White screen was showing
 
-**Use Lovable**
+#### Root Cause
+broken type import in the Supabase client
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5c63bf06-9601-452b-b520-0a727aeb1704) and start prompting.
+#### Fix
+This issue of the white screen has been fixed by removing the broken type import in the Supabase client and using an untyped client to avoid build errors.
 
-Changes made via Lovable will be committed automatically to this repo.
 
-**Use your preferred IDE**
+#### Problem
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+#### 02. Uncaught TypeError: Cannot read properties of null (reading 'useEffect')
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+{
+  "timestamp": 1755025791237,
+  "error_type": "RUNTIME_ERROR",
+  "filename": "https://5c63bf06-9601-452b-b520-0a727aeb1704.lovableproject.com/node_modules/.vite/deps/chunk-BG45W2ER.js?v=deedc71e",
+  "lineno": 1078,
+  "colno": 29,
+  "stack": "TypeError: Cannot read properties of null (reading 'useEffect')\n    at Object.useEffect (https://5c63bf06-9601-452b-b520-0a727aeb1704.lovableproject.com/node_modules/.vite/deps/chunk-BG45W2ER.js?v=deedc71e:1078:29)\n    at QueryClientProvider (https://5c63bf06-9601-452b-b520-0a727aeb1704.lovableproject.com/node_modules/.vite/deps/@tanstack_react-query.js?v=deedc71e:2937:9)\n    at renderWithHooks (https://5c63bf06-9601-452b-b520-0a727aeb1704.lovableproject.com/node_modules/.vite/deps/chunk-R6S4VRB5.js?v=d7e3e811:11548:26)\n    at mountIndeterminateComponent (https://5c63bf06-9601-452b-b520-0a727aeb1704.lovableproject.com/node_modules/.vite/deps/chunk-R6S4VRB5.js?v=d7e3e811:14926:21)\n    at beginWork (https://5c63bf06-9601-452b-b520-0a727aeb1704.lovableproject.com/node_modules/.vite/deps/chunk-R6S4VRB5.js?v=d7e3e811:15914:22)\n    at HTMLUnknownElement.callCallback2 (https://5c63bf06-9601-452b-b520-0a727aeb1704.lovableproject.com/node_modules/.vite/deps/chunk-R6S4VRB5.js?v=d7e3e811:3674:22)\n    at Object.invokeGuardedCallbackDev (https://5c63bf06-9601-452b-b520-0a727aeb1704.lovableproject.com/node_modules/.vite/deps/chunk-R6S4VRB5.js?v=d7e3e811:3699:24)\n    at invokeGuardedCallback (https://5c63bf06-9601-452b-b520-0a727aeb1704.lovableproject.com/node_modules/.vite/deps/chunk-R6S4VRB5.js?v=d7e3e811:3733:39)\n    at beginWork$1 (https://5c63bf06-9601-452b-b520-0a727aeb1704.lovableproject.com/node_modules/.vite/deps/chunk-R6S4VRB5.js?v=d7e3e811:19765:15)\n    at performUnitOfWork (https://5c63bf06-9601-452b-b520-0a727aeb1704.lovableproject.com/node_modules/.vite/deps/chunk-R6S4VRB5.js?v=d7e3e811:19198:20)",
+  "has_blank_screen": true
+}
 
-Follow these steps:
+#### Root Cause
+useEffect not defined
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/5c63bf06-9601-452b-b520-0a727aeb1704) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+#### Fix
+It is fixed by ensuring React is correctly resolved and loaded. I added React deduping in Vite and an explicit React import in App.
