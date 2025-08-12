@@ -21,6 +21,7 @@ export const MetricsDashboard = ({ customers }: MetricsDashboardProps) => {
       icon: Users,
       iconBg: "bg-primary/10",
       iconColor: "text-primary",
+      surface: "card-surface-primary",
     },
     {
       title: "New Prospects",
@@ -28,6 +29,7 @@ export const MetricsDashboard = ({ customers }: MetricsDashboardProps) => {
       icon: Clock,
       iconBg: "bg-ring/10",
       iconColor: "text-ring",
+      surface: "card-surface-accent",
     },
     {
       title: "In Talks",
@@ -35,6 +37,7 @@ export const MetricsDashboard = ({ customers }: MetricsDashboardProps) => {
       icon: TrendingUp,
       iconBg: "bg-secondary",
       iconColor: "text-secondary-foreground",
+      surface: "card-surface-secondary",
     },
     {
       title: "Closed Deals",
@@ -42,13 +45,14 @@ export const MetricsDashboard = ({ customers }: MetricsDashboardProps) => {
       icon: UserCheck,
       iconBg: "bg-muted",
       iconColor: "text-foreground",
+      surface: "card-surface-muted",
     },
   ];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
       {metrics.map((metric) => (
-        <Card key={metric.title} className="hover-scale animate-fade-in transition-shadow hover:shadow-md hover:ring-1 hover:ring-ring">
+        <Card key={metric.title} className={`hover-scale animate-fade-in transition-shadow hover:shadow-md hover:ring-1 hover:ring-ring border ${metric.surface}`}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
               {metric.title}

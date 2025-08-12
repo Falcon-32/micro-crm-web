@@ -120,4 +120,41 @@ All colors MUST be HSL.
   .hover-scale:hover {
     transform: translateY(-2px) scale(1.02);
   }
+
+  /* Colorful card surfaces using design tokens */
+  .card-surface-primary {
+    background-image: linear-gradient(135deg, hsl(var(--primary) / 0.08), transparent);
+    border-color: hsl(var(--primary) / 0.2);
+  }
+  .dark .card-surface-primary {
+    background-image: linear-gradient(135deg, hsl(var(--primary) / 0.12), transparent);
+    border-color: hsl(var(--primary) / 0.25);
+  }
+
+  .card-surface-accent {
+    background-image: linear-gradient(135deg, hsl(var(--accent) / 0.18), transparent);
+    border-color: hsl(var(--accent) / 0.25);
+  }
+  .dark .card-surface-accent {
+    background-image: linear-gradient(135deg, hsl(var(--accent) / 0.22), transparent);
+    border-color: hsl(var(--accent) / 0.3);
+  }
+
+  .card-surface-secondary {
+    background-image: linear-gradient(135deg, hsl(var(--secondary) / 0.6), transparent);
+    border-color: hsl(var(--secondary) / 0.6);
+  }
+  .dark .card-surface-secondary {
+    background-image: linear-gradient(135deg, hsl(var(--secondary) / 0.3), transparent);
+    border-color: hsl(var(--secondary) / 0.4);
+  }
+
+  .card-surface-muted {
+    background-image: linear-gradient(135deg, hsl(var(--muted) / 0.5), transparent);
+    border-color: hsl(var(--muted) / 0.6);
+  }
+  .dark .card-surface-muted {
+    background-image: linear-gradient(135deg, hsl(var(--muted) / 0.3), transparent);
+    border-color: hsl(var(--muted) / 0.45);
+  }
 }
