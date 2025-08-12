@@ -9,6 +9,7 @@ import { Customer } from "@/types/customer";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Plus, LogOut } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const { user, loading: authLoading, signOut } = useAuth();
@@ -178,6 +179,9 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold">Micro CRM</h1>
           <div className="flex items-center gap-4">
+            <Button asChild variant="ghost">
+              <Link to="/metrics">Metrics</Link>
+            </Button>
             <Button onClick={() => setShowCustomerForm(true)}>
               <Plus className="h-4 w-4 mr-2" />
               Add Customer
