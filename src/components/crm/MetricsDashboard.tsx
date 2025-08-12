@@ -48,7 +48,7 @@ export const MetricsDashboard = ({ customers }: MetricsDashboardProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
       {metrics.map((metric) => (
-        <Card key={metric.title}>
+        <Card key={metric.title} className="hover-scale animate-fade-in transition-shadow hover:shadow-md hover:ring-1 hover:ring-ring">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
               {metric.title}

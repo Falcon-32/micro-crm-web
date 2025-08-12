@@ -67,7 +67,10 @@ const Metrics = () => {
 
       <header className="border-b bg-card">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">CRM Metrics</h1>
+          <div>
+            <h1 className="text-2xl font-bold">CRM Metrics</h1>
+            <p className="text-sm text-muted-foreground animate-fade-in">Track pipeline health and trends</p>
+          </div>
           <div className="flex items-center gap-3">
             <Button asChild variant="ghost">
               <Link to="/">← Back to Dashboard</Link>

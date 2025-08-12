@@ -66,7 +66,7 @@ export const MetricsCharts = ({ customers }: MetricsChartsProps) => {
 
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-      <Card>
+      <Card className="hover-scale animate-fade-in transition-shadow hover:shadow-md hover:ring-1 hover:ring-ring">
         <CardHeader>
           <CardTitle className="text-base">Status Distribution</CardTitle>
         </CardHeader>
@@ -86,7 +86,7 @@ export const MetricsCharts = ({ customers }: MetricsChartsProps) => {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="hover-scale animate-fade-in transition-shadow hover:shadow-md hover:ring-1 hover:ring-ring">
         <CardHeader>
           <CardTitle className="text-base">Monthly New Customers</CardTitle>
         </CardHeader>
