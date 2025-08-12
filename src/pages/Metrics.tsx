@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { AuthForm } from "@/components/auth/AuthForm";
 import { MetricsDashboard } from "@/components/crm/MetricsDashboard";
+import { MetricsCharts } from "@/components/crm/MetricsCharts";
 import { Customer } from "@/types/customer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -79,7 +80,10 @@ const Metrics = () => {
         {loading ? (
           <div className="text-muted-foreground">Loading metrics…</div>
         ) : (
-          <MetricsDashboard customers={customers} />
+          <>
+            <MetricsDashboard customers={customers} />
+            <MetricsCharts customers={customers} />
+          </>
         )}
       </main>
     </div>
